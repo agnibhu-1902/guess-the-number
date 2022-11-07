@@ -6,6 +6,7 @@
 
 #define LOWER 1
 #define UPPER 100
+#define MAX_CHANCE 10
 
 // Function declarations
 void game_intro();
@@ -27,7 +28,7 @@ int main(void)
             return 0;
         }
         printf("\nOK, let's begin!");
-        chance = 10;
+        chance = MAX_CHANCE;
         srand(time(0));                                // Use current time as seed for the random generator
         number = rand() % (UPPER - LOWER + 1) + LOWER; // Generate random number
         while (chance)
@@ -36,9 +37,9 @@ int main(void)
             {
                 printf("\n\nWhat is your guess?\n");
                 scanf("%hd", &guess);
-                if (guess < 1 || guess > 100)
+                if (guess < LOWER || guess > UPPER)
                     printf("\nHey, I didn't get that! Please enter a number within 1 and 100.");
-            } while (guess < 1 || guess > 100); // Check for invalid input
+            } while (guess < LOWER || guess > UPPER); // Check for invalid input
             /* Guessing game logic */
             if (guess != number)
             {
