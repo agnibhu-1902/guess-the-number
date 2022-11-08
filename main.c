@@ -17,7 +17,6 @@ void bye();
 int main(void)
 {
     short int chance, number, guess;
-    bool ch;
     do
     {
         game_intro();
@@ -45,9 +44,9 @@ int main(void)
             {
                 printf("\n\nWhoops! Your guess is wrong.");
                 if (guess < number)
-                    printf("\nThe actual number is greater than %hd. ", guess);
+                    printf("\nThe mystery number is greater than %hd. ", guess);
                 else
-                    printf("\nThe actual number is lesser than %hd. ", guess);
+                    printf("\nThe mystery number is lesser than %hd. ", guess);
                 if (chance - 1 > 0)
                     printf("Try again!");
                 printf("\nChances left: %hd", --chance);
@@ -62,18 +61,17 @@ int main(void)
             game_over(chance, number);
         printf("\n\nDo you want to play again? [Y/N]: ");
         fflush(stdin); // Flush the input stream buffer
-        ch = choice(); // Enter choice
-    } while (ch);
+    } while (choice()); // Enter choice and loop through
     bye();
     return 0;
 }
 void game_intro()
 {
     printf("\n*******************************************************");
-    printf("\n*                  GUESS THE NUMBER!                  *");
-    printf("\n*  The number lies between 1 and 100 (both included)  *");
-    printf("\n*        You have to guess the correct number         *");
-    printf("\n*                 You got 10 chances                  *");
+    printf("\n*                  GUESS THE NUMBER                   *");
+    printf("\n*      The mystery number lies within 1 and 100       *");
+    printf("\n*             You have to find the number             *");
+    printf("\n*                  You got 10 chances                 *");
     printf("\n*******************************************************");
 }
 void game_over(short int chance, short int number)
