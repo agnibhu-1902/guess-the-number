@@ -106,7 +106,7 @@ bool choice()
     {
         scanf("%c", &ch);
         ch = (char)toupper(ch);
-        if (ch != 'Y' && ch != 'N')
+        if (!isalpha(ch) || ch != 'Y' && ch != 'N')
             printf("\nPlease say Y (yes) or N (no): ");
         fflush(stdin);
     } while (ch != 'Y' && ch != 'N');
