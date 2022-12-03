@@ -14,7 +14,7 @@ clang -o main main.c
 ```
 .\main.exe
 ```
-#### MacOS (Unix):
+#### MacOS (Unix) and Linux:
 ```
 ./main
 ```
